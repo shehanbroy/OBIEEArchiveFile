@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<obi-action-config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="afconfig.xsd">
+<aliases/>
+<registries>
+<registry>
+<id>reg01</id> 
+<name>Coral EJBs</name> 
+<content-type>java</content-type> 
+<provider-class>oracle.bi.action.registry.java.EJBRegistry</provider-class> 
+<description>Custom Java for Coral Reports</description> 
+<location>
+<path /> 
+</location>
+<custom-config>
+<ejb-targets>
+<appserver>
+<context-factory>weblogic.jndi.WLInitialContextFactory</context-factory> 
+<jndi-url>t3://hostname:9502</jndi-url> 
+<server-name>hostname</server-name> 
+<account>WLSJNDI</account> 
+<ejb-exclude>mgmt</ejb-exclude> 
+<ejb-exclude>PopulationServiceBean</ejb-exclude> 
+</appserver>
+<ejb-app>
+<server>hostname</server>
+<app-context>DeliverBIArchiveReports</app-context> 
+</ejb-app>
+</ejb-targets>
+</custom-config>
+</registry>     
+</registries>
+<content-types>
+<content-type>
+<typename>webservices</typename>
+<displayname>Web Services and BPEL Processes</displayname>
+<actionType>WebServiceActionType</actionType>
+</content-type>
+<content-type>
+<typename>epm</typename>
+<displayname>Hyperion Applications</displayname>
+<actionType>URLActionType</actionType>
+</content-type>
+<content-type>
+<typename>misc</typename>
+<displayname>Mixed Services</displayname>
+<actionType>URLActionType</actionType>
+</content-type>
+<content-type>
+<typename>java</typename>
+<displayname>Java Actions</displayname>
+<actionType>JavaActionType</actionType>
+</content-type>
+</content-types>
+<accounts>
+<account>
+<name>WLSJNDI</name> 
+<description>Account used to access WLS JNDI.</description> 
+<adminonly>false</adminonly> 
+<credentialkey>JNDIuser</credentialkey> 
+</account>
+</accounts>
+</obi-action-config>
+
